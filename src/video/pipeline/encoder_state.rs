@@ -741,10 +741,10 @@ fn converters_for_pipeline(
             info!("Using RGB24->NV12 converter");
             Ok((Some(Nv12Converter::rgb24_to_nv12(resolution)), None))
         }
-        PixelFormat::Bgr24 => {
-            info!("Using BGR24->NV12 converter");
-            Ok((Some(Nv12Converter::bgr24_to_nv12(resolution)), None))
-        }
+        // PixelFormat::Bgr24 => {
+        //     info!("Using BGR24->NV12 converter");
+        //     Ok((Some(Nv12Converter::bgr24_to_nv12(resolution)), None))
+        // }
         _ => Err(AppError::VideoError(format!(
             "Unsupported input format for hardware encoding: {}",
             input_format

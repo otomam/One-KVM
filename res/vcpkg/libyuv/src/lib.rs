@@ -1088,17 +1088,18 @@ pub fn bgr24_to_nv12(src: &[u8], dst: &mut [u8], width: i32, height: i32) -> Res
 
     #[cfg(not(windows))]
     {
-        let y_size = w * h;
-        call_yuv!(RGB24ToNV12(
-            src.as_ptr(),
-            width * 3,
-            dst.as_mut_ptr(),
-            width,
-            dst[y_size..].as_mut_ptr(),
-            width,
-            width,
-            height,
-        ))
+        return Err(YuvError::BufferTooSmall);
+        // let y_size = w * h;
+        // call_yuv!(RGB24ToNV12(
+        //     src.as_ptr(),
+        //     width * 3,
+        //     dst.as_mut_ptr(),
+        //     width,
+        //     dst[y_size..].as_mut_ptr(),
+        //     width,
+        //     width,
+        //     height,
+        // ))
     }
 }
 
